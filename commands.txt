@@ -1,0 +1,72 @@
+python -m venv epai
+source epai/Scripts/activate
+
+git remote -v
+git remote rm myrepo
+git remote add myrepo https://github.com/RaamRaam/python-session-6-RaamRaam.git
+
+python -m ensurepip
+python -m pip install --upgrade pip
+
+pip install --upgrade pip
+pip install pytest
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+
+pytest -vv
+
+
+touch .gitignore
+git add .
+git status
+git commit -m 'intial commit'
+git push origin master
+
+git config --get remote.origin.url
+git remote show origin
+
+git init
+git config --global user.name RaamRaam
+git config --global user.email rm.ramanathan@gmail.com
+
+git remote rename origin tsairepo
+git remote add myrepo https://github.com/RaamRaam/python-session-3-RaamRaam.git
+git push myrepo master
+
+git remote add myrepo https://github.com/RaamRaam/python-session-5-RaamRaam.git
+
+https://dev.to/web/list-of-all-git-commands-4m83
+
+git pull tsairepo master && git push myrepo master
+
+https://www.youtube.com/watch?v=l6fV09z5XHk&feature=youtu.be&ab_channel=ZohebAbai
+.github/workflows/ci.yml
+
+name: GitHub Classroom Workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.6
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.6
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Test with pytest
+        run: pytest -vv
+
+https://deepnote.com/project/d12d8d6f-83dc-4873-bf00-aaff2a39293d#%2FSession%204%20-%20Numerical%20Types%20II%20And%20Functions.ipynb
